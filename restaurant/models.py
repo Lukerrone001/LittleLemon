@@ -14,8 +14,9 @@ class MenuItem(models.Model):
         return f'{self.title} : {str(self.price)}'
 
 class booking(models.Model):
-    no_of_guest = models.IntegerField
-    booking_date = models.DateTimeField(default=datetime.date.today)
+    name = models.CharField(max_length=255)
+    number_of_guests = models.IntegerField(default=6)
+    booking_date = models.DateTimeField()
 
-#class MenuItem(models.Model):
-    #pass
+    def __str__(self) -> str:
+        return f'{self.name} for {self.number_of_guests} guests on {self.booking_date}'
