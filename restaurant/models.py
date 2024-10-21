@@ -10,3 +10,6 @@ class menu(models.Model):
 class booking(models.Model):
     no_of_guest = models.IntegerField
     booking_date = models.DateTimeField(default=datetime.date.today)
+
+#class MenuItem(models.Model):
+    #pass
