@@ -1,8 +1,7 @@
-"""
-URL configuration for littlelemon project.
+"""littlelemon URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,20 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from restaurant import views
-from rest_framework import routers
-
-
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'tables', views.BookingViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
-    path('restaurant/menu/',include('restaurant.urls')),
-    path('restaurant/booking/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api/',include('restaurant.urls')),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.authtoken')),
+    path('admin/', admin.site.urls),
+    path('restaurant/', include('restaurant.urls')),
 ]
